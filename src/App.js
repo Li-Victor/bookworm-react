@@ -25,8 +25,8 @@ const App = ({ location }) => (
 
 App.propTypes = {
   location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
+    pathname: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default App;

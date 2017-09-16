@@ -20,6 +20,7 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "prefer-arrow-callback": ["error", { "allowUnboundThis": true }]
+    "prefer-arrow-callback": ["error", { "allowUnboundThis": true }],
+    "comma-dangle": ["error", "never"]
   }
 }

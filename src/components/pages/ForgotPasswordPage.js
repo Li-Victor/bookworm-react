@@ -7,7 +7,7 @@ import { resetPasswordRequest } from '../../actions/auth';
 
 class ForgotPasswordPage extends React.Component {
   state = {
-    success: false,
+    success: false
   };
 
   submit = data => this.props.resetPasswordRequest(data).then(() => {
@@ -25,7 +25,7 @@ class ForgotPasswordPage extends React.Component {
 }
 
 ForgotPasswordPage.propTypes = {
-  resetPasswordRequest: PropTypes.func.isRequired,
+  resetPasswordRequest: PropTypes.func.isRequired
 };
 
 export default connect(null, { resetPasswordRequest })(ForgotPasswordPage);

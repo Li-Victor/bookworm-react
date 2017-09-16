@@ -8,10 +8,10 @@ class SignupForm extends React.Component {
   state = {
     data: {
       email: '',
-      password: '',
+      password: ''
     },
     loading: false,
-    errors: {},
+    errors: {}
   }
 
   onSubmit = (e) => {
@@ -28,7 +28,7 @@ class SignupForm extends React.Component {
   onChange = (e) => {
     this.setState({
       ...this.state,
-      data: { ...this.state.data, [e.target.name]: e.target.value },
+      data: { ...this.state.data, [e.target.name]: e.target.value }
     });
   }
 
@@ -62,7 +62,7 @@ class SignupForm extends React.Component {
 }
 
 SignupForm.propTypes = {
-  submit: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired
 };
 
 export default SignupForm;

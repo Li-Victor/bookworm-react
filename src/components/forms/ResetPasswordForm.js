@@ -8,16 +8,16 @@ class ResetPasswordForm extends React.Component {
     data: {
       token: this.props.token,
       password: '',
-      passwordConfirmation: '',
+      passwordConfirmation: ''
     },
     loading: false,
-    errors: {},
+    errors: {}
   }
 
   onChange = e =>
     this.setState({
       ...this.state,
-      data: { ...this.state.data, [e.target.name]: e.target.value },
+      data: { ...this.state.data, [e.target.name]: e.target.value }
     });
 
   onSubmit = (e) => {
@@ -67,7 +67,7 @@ class ResetPasswordForm extends React.Component {
 
 ResetPasswordForm.propTypes = {
   submit: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired,
+  token: PropTypes.string.isRequired
 };
 
 export default ResetPasswordForm;

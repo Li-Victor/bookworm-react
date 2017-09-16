@@ -8,7 +8,7 @@ import { validateToken, resetPassword } from '../../actions/auth';
 class ResetPasswordPage extends React.Component {
   state = {
     loading: true,
-    success: false,
+    success: false
   }
 
   componentDidMount() {
@@ -37,12 +37,12 @@ ResetPasswordPage.propTypes = {
   resetPassword: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      token: PropTypes.string.isRequired,
-    }).isRequired,
+      token: PropTypes.string.isRequired
+    }).isRequired
   }).isRequired,
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
+    push: PropTypes.func.isRequired
+  }).isRequired
 };
 
 export default connect(null, { validateToken, resetPassword })(ResetPasswordPage);

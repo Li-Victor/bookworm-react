@@ -3,11 +3,11 @@ import api from '../api';
 
 export const userLoggedIn = user => ({
   type: USER_LOGGED_IN,
-  user,
+  user
 });
 
 export const userLoggedOut = () => ({
-  type: USER_LOGGED_OUT,
+  type: USER_LOGGED_OUT
 });
 
 export const login = credentials =>

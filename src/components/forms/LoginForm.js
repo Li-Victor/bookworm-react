@@ -10,22 +10,22 @@ class LoginForm extends React.Component {
     this.state = {
       data: {
         email: '',
-        password: '',
+        password: ''
       },
       loading: false,
-      errors: {},
+      errors: {}
     };
   }
 
   onChange = (e) => {
-    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value },
+    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value }
     });
   }
 
   onSubmit = () => {
     const errors = this.validate(this.state.data);
     this.setState({
-      errors,
+      errors
     });
     if (Object.keys(errors).length === 0) {
       this.setState({ loading: true });
@@ -80,7 +80,7 @@ class LoginForm extends React.Component {
 }
 
 LoginForm.propTypes = {
-  submit: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired
 };
 
 export default LoginForm;
