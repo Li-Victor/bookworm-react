@@ -11,7 +11,7 @@ class ForgotPasswordForm extends React.Component {
     },
     loading: false,
     errors: {}
-  }
+  };
 
   onChange = e =>
     this.setState({
@@ -27,17 +27,15 @@ class ForgotPasswordForm extends React.Component {
       this.setState({ loading: true });
       this.props
         .submit(this.state.data)
-        .catch(err =>
-          this.setState({ errors: err.response.data.errors, loading: false })
-        );
+        .catch(err => this.setState({ errors: err.response.data.errors, loading: false }));
     }
-  }
+  };
 
   validate = (data) => {
     const errors = {};
     if (!isEmail(data.email)) errors.email = 'Invalid email';
     return errors;
-  }
+  };
 
   render() {
     const { errors, data, loading } = this.state;
@@ -47,7 +45,14 @@ class ForgotPasswordForm extends React.Component {
         {!!errors.global && <Message negative>{errors.global}</Message>}
         <Form.Field error={!!errors.email}>
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="email" value={data.email} onChange={this.onChange} />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="email"
+            value={data.email}
+            onChange={this.onChange}
+          />
           {errors.email && <InlineError text={errors.mail} />}
         </Form.Field>
         <Button primary>ForgotPasswordForm</Button>

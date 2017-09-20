@@ -4,7 +4,7 @@ import { Form, Button } from 'semantic-ui-react';
 import InlineError from '../messages/InlineError';
 
 class ResetPasswordForm extends React.Component {
-  state ={
+  state = {
     data: {
       token: this.props.token,
       password: '',
@@ -12,7 +12,7 @@ class ResetPasswordForm extends React.Component {
     },
     loading: false,
     errors: {}
-  }
+  };
 
   onChange = e =>
     this.setState({
@@ -28,18 +28,16 @@ class ResetPasswordForm extends React.Component {
       this.setState({ loading: true });
       this.props
         .submit(this.state.data)
-        .catch(err =>
-          this.setState({ errors: err.response.data.errors, loading: false })
-        );
+        .catch(err => this.setState({ errors: err.response.data.errors, loading: false }));
     }
-  }
+  };
 
   validate = (data) => {
     const errors = {};
-    if (!data.password) errors.password = 'Can\'t be blank';
+    if (!data.password) errors.password = "Can't be blank";
     if (data.password !== data.passwordConfirmation) errors.password = 'Passwords must match';
     return errors;
-  }
+  };
 
   render() {
     const { errors, data, loading } = this.state;
@@ -48,17 +46,29 @@ class ResetPasswordForm extends React.Component {
       <Form onSubmit={this.onSubmit} loading={loading}>
         <Form.Field error={!!errors.password}>
           <label htmlFor="password">New Password</label>
-          <input type="password" id="password" name="password" placeholder="your new password" value={data.password} onChange={this.onChange} />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="your new password"
+            value={data.password}
+            onChange={this.onChange}
+          />
         </Form.Field>
         {errors.password && <InlineError text={errors.password} />}
 
         <Form.Field error={!!errors.passwordConfirmation}>
           <label htmlFor="password">New Password</label>
-          <input type="password" id="passwordConfirmation" name="passwordConfirmation" placeholder="type it again, please" value={data.passwordConfirmation} onChange={this.onChange} />
+          <input
+            type="password"
+            id="passwordConfirmation"
+            name="passwordConfirmation"
+            placeholder="type it again, please"
+            value={data.passwordConfirmation}
+            onChange={this.onChange}
+          />
         </Form.Field>
-        {errors.passwordConfirmation && (
-          <InlineError text={errors.passwordConfirmation} />
-        )}
+        {errors.passwordConfirmation && <InlineError text={errors.passwordConfirmation} />}
         <Button primary>Reset</Button>
       </Form>
     );

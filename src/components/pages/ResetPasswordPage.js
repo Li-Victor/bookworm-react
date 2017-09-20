@@ -9,10 +9,11 @@ class ResetPasswordPage extends React.Component {
   state = {
     loading: true,
     success: false
-  }
+  };
 
   componentDidMount() {
-    this.props.validateToken(this.props.match.params.token)
+    this.props
+      .validateToken(this.props.match.params.token)
       .then(() => this.setState({ loading: false, success: true }))
       .catch(() => this.setState({ loading: false, success: false }));
   }
@@ -24,9 +25,9 @@ class ResetPasswordPage extends React.Component {
     const token = this.props.match.params.token;
     return (
       <div>
-        { loading && <Message>Loading</Message>}
-        { !loading && success && <ResetPasswordForm submit={this.submit} token={token} />}
-        { !loading && !success && <Message>Invalid Token</Message>}
+        {loading && <Message>Loading</Message>}
+        {!loading && success && <ResetPasswordForm submit={this.submit} token={token} />}
+        {!loading && !success && <Message>Invalid Token</Message>}
       </div>
     );
   }

@@ -12,16 +12,15 @@ import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './rootReducer';
 import { userLoggedIn } from './actions/auth';
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk)),
-);
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 if (localStorage.bookwormJWT) {
   const payload = decode(localStorage.bookwormJWT);
-  const user = { token: localStorage.bookwormJWT,
+  const user = {
+    token: localStorage.bookwormJWT,
     email: payload.email,
-    confirmed: payload.confirmed };
+    confirmed: payload.confirmed
+  };
   store.dispatch(userLoggedIn(user));
 }
 
@@ -30,5 +29,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Route component={App} />
     </Provider>
-  </BrowserRouter>, document.getElementById('root'));
+  </BrowserRouter>,
+  document.getElementById('root')
+);
 registerServiceWorker();
